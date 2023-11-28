@@ -1,0 +1,197 @@
+var blue = new Color (198, 232, 247);
+var darkBlue = new Color (91, 111, 128);
+var concrete = new Color (117, 117, 117);
+var paint = new Color (212, 160, 19);
+var brown = new Color (84, 59, 33);
+var orange = new Color (148, 86, 22);
+
+
+var x = getWidth();
+var y = getHeight();
+
+background();
+mountains();
+road();
+stripe();
+leavesBehind();
+
+//x, y is bottom left corner of tree trunk, everything else is relative
+//to those values
+var x = 100
+var y = 350
+
+// var s is used to scale props, for standard size (unscaled) set value to 1
+var s = 1
+
+tree();
+
+var x = 200
+var y = 300
+var s = 1.5
+
+tree();
+
+function road(){
+    var street = new Polygon();
+    street.addPoint(10,480);
+    street.addPoint(360,480);
+    street.addPoint(290,350);
+    street.addPoint(200,312);
+    street.addPoint(250,300);
+    street.addPoint(220,300);
+    street.addPoint(140,312);
+    street.addPoint(180,350);
+    street.setColor(concrete);
+    add(street);
+}
+
+function stripe(){
+    var line = new Polygon();
+    line.addPoint(180,480);
+    line.addPoint(240,480);
+    line.addPoint(233,350);
+    line.addPoint(170,312);
+    line.addPoint(236,300);
+    line.addPoint(235,300);
+    line.addPoint(165,312);
+    line.addPoint(223,350);
+    line.setColor(paint);
+    add(line);
+}
+
+function tree(){    
+    var treeTrunk = new Polygon();
+	treeTrunk.addPoint(s * (x), s * (y));
+	treeTrunk.addPoint(s * (x + 5), s * (y - 13));
+	treeTrunk.addPoint(s * (x - 7), s * (y - 100));
+	treeTrunk.addPoint(s * (x - 40), s * (y - 200));
+	treeTrunk.addPoint(s * (x - 13), s * (y - 150));
+	treeTrunk.addPoint(s * (x + 3), s * (y - 250));
+	treeTrunk.addPoint(s * (x - 1), s * (y - 130));
+	treeTrunk.addPoint(s * (x + 10), s * (y - 110));
+	treeTrunk.addPoint(s * (x + 55), s * (y - 180));
+	treeTrunk.addPoint(s * (x + 20), s * (y - 100));
+	treeTrunk.addPoint(s * (x + 15), s * (y - 90));
+	treeTrunk.addPoint(s * (x + 30), s * (y - 10));
+	treeTrunk.addPoint(s * (x + 35), s * (y));
+	add(treeTrunk);
+}
+
+function background(){
+    var circle = new Circle(1000);
+    circle.setPosition(x,y);
+    circle.setColor(blue);
+    add(circle)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2+100,y/2-130);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(20);
+    circ.setPosition(x/2+70,y/2-120);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(20);
+    circ.setPosition(x/2+130,y/2-120);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(20);
+    circ.setPosition(x/2+120,y/2-150);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(45);
+    circ.setPosition(x/2-100,y/2-60);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2-150,y/2-80);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2-50,y/2-70);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2-130,y/2-40);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(35);
+    circ.setPosition(x-300,y-470);
+    circ.setColor(Color.white)
+    add(circ)
+    
+    var circ = new Circle(20);
+    circ.setPosition(x-340,y-475);
+    circ.setColor(Color.white)
+    add(circ)
+}
+
+function mountains(){
+    var polygon = new Polygon();
+    polygon.addPoint(250, 130);
+    polygon.addPoint(100, 300);
+    polygon.addPoint(400, 300);
+    polygon.setColor(darkBlue);
+    add(polygon);
+    
+    var polygon = new Polygon();
+    polygon.addPoint(90, 150);
+    polygon.addPoint(0, 300);
+    polygon.addPoint(350, 300);
+    polygon.setColor(darkBlue);
+    add(polygon);
+    
+    var polygon = new Polygon();
+    polygon.addPoint(400, 170);
+    polygon.addPoint(400, 300);
+    polygon.addPoint(50, 300);
+    polygon.setColor(darkBlue);
+    add(polygon);
+    
+    var polygon = new Polygon();
+    polygon.addPoint(100, 300);
+    polygon.addPoint(0, 100);
+    polygon.addPoint(0, 300);
+    polygon.setColor(darkBlue);
+    add(polygon);
+}
+
+function leavesBehind(){
+    var circ = new Circle(30);
+    circ.setPosition(x/2+60,y/2);
+    circ.setColor(brown)
+    add(circ)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2+100,y/2+50);
+    circ.setColor(brown)
+    add(circ)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2+150,y/2-30);
+    circ.setColor(brown)
+    add(circ)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2+120,y/2+10);
+    circ.setColor(orange)
+    add(circ)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2+70,y/2-70);
+    circ.setColor(orange)
+    add(circ)
+    
+    var circ = new Circle(30);
+    circ.setPosition(x/2+130,y/2-70);
+    circ.setColor(orange)
+    add(circ)
+}
